@@ -113,6 +113,13 @@ Run with coverage:
 mvn test jacoco:report
 ```
 
+## Documentation
+
+Want to see routes documentation ? Go to http://localhost:8080/swagger-ui/index.html
+
+<img width="1917" height="968" alt="Capture d’écran 2025-10-15 à 11 34 24" src="https://github.com/user-attachments/assets/bf75f9ff-e8ee-4578-9af0-f874649f9684" />
+
+
 ## Project Structure
 ```
 src/main/java/com/vaudoise/factory/
@@ -162,5 +169,5 @@ src/main/java/com/vaudoise/factory/
 - Implement authentication & authorization
 - Implement caching for frequently accessed data
 - Add integration tests
-- API documentation with Swagger/OpenAPI
+- API documentation with Swagger/OpenAPI -> Done
 - Add Docker environment -> Done
