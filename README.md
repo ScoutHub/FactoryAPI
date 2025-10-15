@@ -1,4 +1,4 @@
-# Insurance API - Client & Contract Management
+# Factory API - Client & Contract Management
 
 A RESTful API built with Java Spring Boot for managing insurance clients and their contracts.
 
