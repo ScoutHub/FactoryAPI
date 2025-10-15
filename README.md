@@ -75,6 +75,30 @@ mvn clean install
 mvn spring-boot:run
 ```
 
+Or with Docker :
+```bash
+docker-compose up -d
+```
+
+Don't forget to configure `.env` file and put it into `.docker/` directory. Here example file : 
+```bash
+# Database Configuration
+POSTGRES_DB=
+POSTGRES_USER=
+POSTGRES_PASSWORD=
+POSTGRES_PORT=5432
+
+# Application Configuration
+SPRING_DATASOURCE_URL=jdbc:postgresql://host:5432/db
+SPRING_DATASOURCE_USERNAME=
+SPRING_DATASOURCE_PASSWORD=
+SPRING_JPA_HIBERNATE_DDL_AUTO=update
+SPRING_JPA_SHOW_SQL=false
+
+# Server Configuration
+SERVER_PORT=8080
+```
+
 The API will start on `http://localhost:8080`
 
 ## Testing
@@ -139,4 +163,4 @@ src/main/java/com/vaudoise/factory/
 - Implement caching for frequently accessed data
 - Add integration tests
 - API documentation with Swagger/OpenAPI
-- Add Docker environment
+- Add Docker environment -> Done
