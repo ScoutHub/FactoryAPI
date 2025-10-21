@@ -20,7 +20,8 @@ The layered approach provides clear separation of concerns while maintaining sim
 - **Single Table Inheritance**: Optimizes query performance for Client polymorphism (Person/Company)
 - **UUID Primary Keys**: Enhanced security, prevents enumeration attacks
 - **Global Exception Handling**: Consistent API error responses
-- **Bcrypt password Hashing for high security**
+- **Bcrypt** password Hashing for high security
+- **Header Authorization with Bearer** for /api/** routes
 
 ### Future Evolution (V2 - Microservices)
 The current design facilitates migration to microservices architecture:
