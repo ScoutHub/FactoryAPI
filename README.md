@@ -13,11 +13,14 @@ The layered approach provides clear separation of concerns while maintaining sim
 - **Repositories**: Data access abstraction via Spring Data JPA
 - **Entities**: Domain model with JPA mappings
 - **DTOs**: API contract definitions for request/response payloads
+- **Config**: Middlewares and others configuration files
+- **Utils**: Utilities like JWT
 
 ### Technical Decisions
 - **Single Table Inheritance**: Optimizes query performance for Client polymorphism (Person/Company)
 - **UUID Primary Keys**: Enhanced security, prevents enumeration attacks
 - **Global Exception Handling**: Consistent API error responses
+- **Bcrypt password Hashing for high security**
 
 ### Future Evolution (V2 - Microservices)
 The current design facilitates migration to microservices architecture:
@@ -63,6 +66,11 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 
+jwt.secret=myjwtsecret
+jwt.expiration=3600000
+
+spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+
 ```
 
 ### 3. Build the Project
@@ -95,6 +103,11 @@ SPRING_DATASOURCE_PASSWORD=
 SPRING_JPA_HIBERNATE_DDL_AUTO=update
 SPRING_JPA_SHOW_SQL=false
 
+JWT_SECRET=
+JWT_EXPIRATION=3600000
+
+SPRING_AUTOCONFIGURE_EXCLUDE=org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+
 # Server Configuration
 SERVER_PORT=8080
 ```
@@ -122,37 +135,47 @@ Want to see routes documentation ? Go to http://localhost:8080/swagger-ui/index.
 
 ## Project Structure
 ```
-src/main/java/com/vaudoise/factory/
-├── controller/
-│   ├── ClientController.java
-│   └── ContractController.java
-├── service/
-│   ├── ClientService.java
-│   └── ContractService.java
-├── repository/
-│   ├── ClientRepository.java
-│   ├── PersonRepository.java
-│   ├── CompanyRepository.java
-│   └── ContractRepository.java
-├── entity/
-│   ├── Client.java
-│   ├── Person.java
-│   ├── Company.java
-│   └── Contract.java
-├── dto/
-│   ├── request/
-│   │   ├── PersonRequestDto.java
-│   │   ├── CompanyRequestDto.java
-│   │   ├── ClientUpdateRequestDto.java
-│   │   ├── ContractRequestDto.java
-│   │   └── ContractUpdateDto.java
-│   └── response/
-│       ├── ClientResponseDto.java
-│       └── ContractResponseDto.java
-└── exception/
-    ├── ResourceNotFoundException.java
-    ├── EmailAlreadyExistsException.java
-    └── GlobalExceptionHandler.java
+src/main/java/com/vaudoise/factory
+├── FactoryApplication.java
+├── config
+│   └── JwtAuthenticationFilter.java
+├── controller
+│   ├── AuthController.java
+│   ├── ClientController.java
+│   └── ContractController.java
+├── dto
+│   ├── request
+│   │   ├── ClientUpdateRequestDto.java
+│   │   ├── CompanyRequestDto.java
+│   │   ├── ContractRequestDto.java
+│   │   ├── ContractUpdateDto.java
+│   │   ├── LoginRequestDto.java
+│   │   ├── PersonRequestDto.java
+│   │   └── RegisterRequestDto.java
+│   └── response
+│       ├── AuthResponseDto.java
+│       ├── ClientResponseDto.java
+│       └── ContractResponseDto.java
+├── entity
+│   ├── Client.java
+│   ├── Company.java
+│   ├── Contract.java
+│   └── Person.java
+├── exception
+│   ├── EmailAlreadyExistsException.java
+│   ├── GlobalExceptionHandler.java
+│   └── ResourceNotFoundException.java
+├── repository
+│   ├── ClientRepository.java
+│   ├── CompanyRepository.java
+│   ├── ContractRepository.java
+│   └── PersonRepository.java
+├── service
+│   ├── AuthService.java
+│   ├── ClientService.java
+│   └── ContractService.java
+└── utils
+    └── JwtUtil.java
 ```
 
 ## Technical Stack
@@ -163,11 +186,12 @@ src/main/java/com/vaudoise/factory/
 - **PostgreSQL**
 - **Maven**
 - **Jakarta Validation**
+- **JWT Authorization**
 
 ## Future Improvements
 
-- Implement authentication & authorization
+- <del> Implement authentication & authorization </del>
 - Implement caching for frequently accessed data
 - Add integration tests
-- API documentation with Swagger/OpenAPI -> Done
-- Add Docker environment -> Done
+- <del> API documentation with Swagger/OpenAPI </del>
+- <del> Add Docker environment </del>
