@@ -10,42 +10,22 @@
 			"name": "client",
 			"item": [
 				{
-					"name": "create person",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"toto\",\n    \"email\": \"tanerdu67@live.fr\",\n    \"phone\": \"+3369554935\",\n    \"birthdate\": \"2001-11-25\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/clients/persons",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"clients",
-								"persons"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "read",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMDY4NTVmYS03Y2E1LTQ3NDEtYjA4Yy1jN2YyZTQzNjMwZmIiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJjbGllbnRUeXBlIjoiUEVSU09OIiwiaWF0IjoxNzYxMDMxNDA0LCJleHAiOjE3NjEwMzUwMDR9.s0aDFEKXoBhs1sqivYeQOL_yPlqdygmZoqT9z7flwR4",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/clients/aef1fc05-d408-4204-9835-b4e985f39bfc",
+							"raw": "http://localhost:8080/api/clients/106855fa-7ca5-4741-b08c-c7f2e43630fb",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -54,7 +34,7 @@
 							"path": [
 								"api",
 								"clients",
-								"aef1fc05-d408-4204-9835-b4e985f39bfc"
+								"106855fa-7ca5-4741-b08c-c7f2e43630fb"
 							]
 						}
 					},
@@ -63,11 +43,21 @@
 				{
 					"name": "update",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0M2ZlMzk5YS0zMWJkLTRmZjUtOGM3Mi1mNDU3MTBjNDcxM2YiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJjbGllbnRUeXBlIjoiUEVSU09OIiwiaWF0IjoxNzYxMDI5MTY2LCJleHAiOjE3NjEwMzI3NjZ9.belcnLRPmQoi_cC0swoMAbngVhN2uXK5YzWtSJNDQdY",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"totoooooo\",\n    \"email\": \"tanerdu67@live.fr\",\n    \"phone\": \"+3369554935\"\n}",
+							"raw": "{\n    \"name\": \"John Doee\",\n    \"email\": \"john@example.com\",\n    \"phone\": \"+3369554935\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -75,7 +65,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/clients/b520558b-b6c1-439e-8274-ba070bd13b79",
+							"raw": "http://localhost:8080/api/clients/43fe399a-31bd-4ff5-8c72-f45710c4713f",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -84,7 +74,7 @@
 							"path": [
 								"api",
 								"clients",
-								"b520558b-b6c1-439e-8274-ba070bd13b79"
+								"43fe399a-31bd-4ff5-8c72-f45710c4713f"
 							]
 						}
 					},
@@ -93,10 +83,20 @@
 				{
 					"name": "delete",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0M2ZlMzk5YS0zMWJkLTRmZjUtOGM3Mi1mNDU3MTBjNDcxM2YiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJjbGllbnRUeXBlIjoiUEVSU09OIiwiaWF0IjoxNzYxMDI5ODI5LCJleHAiOjE3NjEwMzM0Mjl9.sHtM-r7OvPamn-wZwJsEMnqSdxnG1bphl95dyAROG9U",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/clients/afecc091-ae7d-46f8-a21d-3d1352867559",
+							"raw": "http://localhost:8080/api/clients/43fe399a-31bd-4ff5-8c72-f45710c4713f",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -105,37 +105,7 @@
 							"path": [
 								"api",
 								"clients",
-								"afecc091-ae7d-46f8-a21d-3d1352867559"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create company",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"toto\",\n    \"email\": \"tanerdu67@live.com\",\n    \"phone\": \"+3369554935\",\n    \"birthdate\": \"2001-11-25\",\n    \"companyIdentifier\": \"test-123\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/clients/companies",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"clients",
-								"companies"
+								"43fe399a-31bd-4ff5-8c72-f45710c4713f"
 							]
 						}
 					},
@@ -149,11 +119,21 @@
 				{
 					"name": "create",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMDY4NTVmYS03Y2E1LTQ3NDEtYjA4Yy1jN2YyZTQzNjMwZmIiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJjbGllbnRUeXBlIjoiUEVSU09OIiwiaWF0IjoxNzYxMDMxNDA0LCJleHAiOjE3NjEwMzUwMDR9.s0aDFEKXoBhs1sqivYeQOL_yPlqdygmZoqT9z7flwR4",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"clientId\": \"aef1fc05-d408-4204-9835-b4e985f39bfc\",\n    \"startDate\": \"2025-08-01\",\n    \"endDate\": \"2025-12-29\",\n    \"costAmount\": \"500\"\n}",
+							"raw": "{\n    \"clientId\": \"106855fa-7ca5-4741-b08c-c7f2e43630fb\",\n    \"startDate\": \"2025-08-01\",\n    \"endDate\": \"2025-12-29\",\n    \"costAmount\": \"500\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -178,10 +158,20 @@
 				{
 					"name": "get contracts",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMDY4NTVmYS03Y2E1LTQ3NDEtYjA4Yy1jN2YyZTQzNjMwZmIiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJjbGllbnRUeXBlIjoiUEVSU09OIiwiaWF0IjoxNzYxMDMxNDA0LCJleHAiOjE3NjEwMzUwMDR9.s0aDFEKXoBhs1sqivYeQOL_yPlqdygmZoqT9z7flwR4",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/contracts/client/aef1fc05-d408-4204-9835-b4e985f39bfc?updateDate=2025-10-15",
+							"raw": "http://localhost:8080/api/contracts/client/106855fa-7ca5-4741-b08c-c7f2e43630fb",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -191,12 +181,13 @@
 								"api",
 								"contracts",
 								"client",
-								"aef1fc05-d408-4204-9835-b4e985f39bfc"
+								"106855fa-7ca5-4741-b08c-c7f2e43630fb"
 							],
 							"query": [
 								{
 									"key": "updateDate",
-									"value": "2025-10-15"
+									"value": "2025-10-15",
+									"disabled": true
 								}
 							]
 						}
@@ -206,10 +197,20 @@
 				{
 					"name": "total cost",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMDY4NTVmYS03Y2E1LTQ3NDEtYjA4Yy1jN2YyZTQzNjMwZmIiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJjbGllbnRUeXBlIjoiUEVSU09OIiwiaWF0IjoxNzYxMDMxNDA0LCJleHAiOjE3NjEwMzUwMDR9.s0aDFEKXoBhs1sqivYeQOL_yPlqdygmZoqT9z7flwR4",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/contracts/client/aef1fc05-d408-4204-9835-b4e985f39bfc/total-cost",
+							"raw": "http://localhost:8080/api/contracts/client/106855fa-7ca5-4741-b08c-c7f2e43630fb/total-cost",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -219,8 +220,71 @@
 								"api",
 								"contracts",
 								"client",
-								"aef1fc05-d408-4204-9835-b4e985f39bfc",
+								"106855fa-7ca5-4741-b08c-c7f2e43630fb",
 								"total-cost"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"john@example.com\",\n    \"password\": \"secret123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"phone\": \"+1234567890\",\n  \"password\": \"secret123\",\n  \"clientType\": \"PERSON\",\n  \"birthdate\": \"1990-01-15\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"register"
 							]
 						}
 					},
