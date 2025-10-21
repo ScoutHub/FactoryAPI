@@ -19,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -81,9 +82,9 @@ public class ClientService {
         Client client = clientRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Client not found with id: " + id));
 
-        Client clientExistWithEmail = clientRepository.findByEmail(requestDto.getEmail());
+        Optional<Client> clientExistWithEmail = clientRepository.findByEmail(requestDto.getEmail());
 
-        if (clientExistWithEmail != null && !clientExistWithEmail.getId().equals(client.getId())) {
+        if (clientExistWithEmail.isPresent() && !clientExistWithEmail.get().getId().equals(client.getId())) {
             throw new EmailAlreadyExistsException("Email already registered");
         }
 
