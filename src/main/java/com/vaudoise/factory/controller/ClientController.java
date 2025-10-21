@@ -1,12 +1,9 @@
 package com.vaudoise.factory.controller;
 
 import com.vaudoise.factory.dto.request.ClientUpdateRequestDto;
-import com.vaudoise.factory.dto.request.CompanyRequestDto;
-import com.vaudoise.factory.dto.request.PersonRequestDto;
 import com.vaudoise.factory.dto.response.ClientResponseDto;
 import com.vaudoise.factory.service.ClientService;
 import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,18 +17,6 @@ public class ClientController {
 
     public ClientController(ClientService clientService) {
         this.clientService = clientService;
-    }
-
-    @PostMapping("/persons")
-    public ResponseEntity<ClientResponseDto> createPerson(@Valid @RequestBody PersonRequestDto requestDto) {
-        ClientResponseDto response = clientService.createPerson(requestDto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
-    }
-
-    @PostMapping("/companies")
-    public ResponseEntity<ClientResponseDto> createCompany(@Valid @RequestBody CompanyRequestDto requestDto) {
-        ClientResponseDto response = clientService.createCompany(requestDto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @GetMapping("/{id}")

@@ -17,8 +17,8 @@ public class Company extends Client {
         super();
     }
 
-    public Company(String name, String email, String phone, String companyIdentifier) {
-        super(name, email, phone);
+    public Company(String name, String email, String phone, String password, String companyIdentifier) {
+        super(name, email, phone, password);
         this.companyIdentifier = companyIdentifier;
     }
 

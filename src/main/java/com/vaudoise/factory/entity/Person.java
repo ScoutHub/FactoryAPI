@@ -17,8 +17,8 @@ public class Person extends Client {
         super();
     }
 
-    public Person(String name, String email, String phone, LocalDate birthdate) {
-        super(name, email, phone);
+    public Person(String name, String email, String phone, String password, LocalDate birthdate) {
+        super(name, email, phone, password);
         this.birthdate = birthdate;
     }
 

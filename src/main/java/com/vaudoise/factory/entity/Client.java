@@ -24,22 +24,27 @@ public abstract class Client {
 
     @NotBlank(message = "Email is required")
     @Email(message = "Email should be valid")
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @NotBlank(message = "Phone is required")
     @Column(nullable = false)
     private String phone;
 
+    @NotBlank(message = "Password is required")
+    @Column(nullable = false)
+    private String password;
+
     @OneToMany(mappedBy = "client", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     private List<Contract> contracts = new ArrayList<>();
 
     public Client() {}
 
-    public Client(String name, String email, String phone) {
+    public Client(String name, String email, String phone, String password) {
         this.name = name;
         this.email = email;
         this.phone = phone;
+        this.password = password;
         this.contracts = new ArrayList<>();
     }
 
@@ -54,6 +59,9 @@ public abstract class Client {
 
     public String getPhone() { return phone; }
     public void setPhone(String phone) { this.phone = phone; }
+
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
 
     public List<Contract> getContracts() { return contracts; }
     public void setContracts(List<Contract> contracts) { this.contracts = contracts; }
