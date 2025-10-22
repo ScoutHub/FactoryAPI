@@ -40,7 +40,7 @@ public class RateLimitFilter extends OncePerRequestFilter {
     protected void doFilterInternal(@NonNull HttpServletRequest request,
                                     @NonNull HttpServletResponse response,
                                     @NonNull FilterChain filterChain) throws IOException, ServletException {
-        
+
         String clientIp = request.getRemoteAddr();
         Bucket bucket = resolveBucket(clientIp);
 
