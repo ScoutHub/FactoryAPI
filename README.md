@@ -194,5 +194,8 @@ src/main/java/com/vaudoise/factory
 - <del> Implement authentication & authorization </del>
 - Implement caching for frequently accessed data
 - Add integration tests
+- Add rate limit
+- CORS
+- Monitoring
 - <del> API documentation with Swagger/OpenAPI </del>
 - <del> Add Docker environment </del>
