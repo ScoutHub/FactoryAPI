@@ -21,7 +21,8 @@ The layered approach provides clear separation of concerns while maintaining sim
 - **UUID Primary Keys**: Enhanced security, prevents enumeration attacks
 - **Global Exception Handling**: Consistent API error responses
 - **Bcrypt** password Hashing for high security
-- **Header Authorization with Bearer** for /api/** routes
+- **Header Authorization with JWT Bearer** for /api/** routes
+- **Rate limit** with Bucket4j and Caffeine
 
 ### Future Evolution (V2 - Microservices)
 The current design facilitates migration to microservices architecture:
@@ -140,6 +141,7 @@ src/main/java/com/vaudoise/factory
 ├── FactoryApplication.java
 ├── config
 │   └── JwtAuthenticationFilter.java
+│   └── RateLimitFilter.java.java
 ├── controller
 │   ├── AuthController.java
 │   ├── ClientController.java
@@ -194,7 +196,7 @@ src/main/java/com/vaudoise/factory
 - <del> Implement authentication & authorization </del>
 - Implement caching for frequently accessed data
 - Add integration tests
-- Add rate limit
+- <del>Add rate limit</del>
 - CORS
 - Monitoring
 - <del> API documentation with Swagger/OpenAPI </del>
